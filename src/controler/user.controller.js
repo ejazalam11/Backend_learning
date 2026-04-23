@@ -30,10 +30,10 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: "User not found" });
     }
     
-        // const isMatch = await user.comparePassword(password);
-        // if (!isMatch) {
-        // return res.status(400).json({ message: "Invalid password" });
-        // } ;
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+        return res.status(400).json({ message: "Invalid password" });
+        } ;
   }
   catch (error) {
     res.status(500).json({ message: error.message });
